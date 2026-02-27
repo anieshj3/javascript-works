@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile Page</title>
+</head>
+<body>
+
+<h2>Basic Profile Access Checker</h2>
+
+<button onclick="checkAccess()">Check Admin Access</button>
+
+<p id="result"></p>
+
+<script>
+    let userName = "Aniesh";
+    let userAge = 20;
+    let isAdmin = true;
+
+    let user = {
+        name: userName,
+        age: userAge,
+        admin: isAdmin
+    };
+
+    function checkAccess() {
+
+        let message = "";
+        if ("age" in user) {
+            console.log("Age property exists.");
+
+            message = (user.age >= 18 && user.admin)
+                ? "Access Granted"
+                : "Access Denied";
+
+            delete user.age;
+
+            console.log("Age property deleted.");
+        } else {
+            message = "Age property not found.";
+        }
+
+        document.getElementById("result").textContent = message;
+
+        console.log(user);
+    }
+</script>
+
+</body>
+</html>
