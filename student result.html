@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Dashboard</title>
+</head>
+<body>
+
+    <h1>Student Result Dashboard</h1>
+
+    <h3>1. All Student Names</h3>
+    <div id="allNames"></div>
+
+    <h3>2. Students Scored More Than 60</h3>
+    <div id="above60"></div>
+
+    <h3>3. Total Score of All Students</h3>
+    <div id="totalScore"></div>
+
+    <h3>4. Did All Students Pass? (Score > 35)</h3>
+    <div id="allPassed"></div>
+
+    <h3>5. Is There Any Student Scored More Than 90?</h3>
+    <div id="above90"></div>
+
+    <h3>6. Students Sorted by Score (Descending)</h3>
+    <div id="sortedStudents"></div>
+
+    <script>
+        let students = [
+            { name: "Arun", score: 75 },
+            { name: "Meera", score: 92 },
+            { name: "Rahul", score: 58 },
+            { name: "Divya", score: 34 },
+            { name: "Kiran", score: 66 }
+        ];
+
+        let names = students.map(student => student.name);
+        document.getElementById("allNames").innerHTML = names.join("<br>");
+
+        let above60 = students
+            .filter(student => student.score > 60)
+            .map(student => student.name);
+
+        document.getElementById("above60").innerHTML = above60.join("<br>");
+
+        let total = students.reduce((sum, student) => sum + student.score, 0);
+        document.getElementById("totalScore").innerHTML = total;
+
+        let allPassed = students.every(student => student.score > 35);
+        document.getElementById("allPassed").innerHTML = allPassed ? "Yes" : "No";
+
+        let above90 = students.some(student => student.score > 90);
+        document.getElementById("above90").innerHTML = above90 ? "Yes" : "No";
+
+        let sorted = [...students].sort((a, b) => b.score - a.score);
+
+        let sortedOutput = "";
+        sorted.forEach(student => {
+            sortedOutput += student.name + " - " + student.score + "<br>";
+        });
+
+        document.getElementById("sortedStudents").innerHTML = sortedOutput;
+
+    </script>
+
+</body>
+</html>
