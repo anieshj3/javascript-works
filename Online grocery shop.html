@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Grocery Store</title>
+</head>
+<body>
+
+    <h2>All Products</h2>
+    <div id="allProducts"></div>
+
+    <h2>Products with Price Greater Than 50</h2>
+    <div id="filteredProducts"></div>
+
+    <h2>Updated Product List</h2>
+    <div id="updatedProducts"></div>
+
+    <script>
+        let products = ["Apple", "Banana", "Mango", "Orange"];
+        let prices = [50, 30, 70, 60];
+
+        let productList = [];
+        for (let i = 0; i < products.length; i++) {
+            productList.push("Product: " + products[i] + " - Price: " + prices[i]);
+        }
+
+        let allOutput = "";
+        for (let i = 0; i < productList.length; i++) {
+            allOutput += productList[i] + "<br>";
+        }
+        document.getElementById("allProducts").innerHTML = allOutput;
+
+        let filteredOutput = "";
+        for (let i = 0; i < prices.length; i++) {
+            if (prices[i] > 50) {
+                filteredOutput += "Product: " + products[i] + " - Price: " + prices[i] + "<br>";
+            }
+        }
+        document.getElementById("filteredProducts").innerHTML = filteredOutput;
+
+        products.push("Watermelon");
+        prices.push(80);
+
+        let updatedList = [];
+        for (let i = 0; i < products.length; i++) {
+            updatedList.push("Product: " + products[i] + " - Price: " + prices[i]);
+        }
+
+        let updatedOutput = "";
+        for (let i = 0; i < updatedList.length; i++) {
+            updatedOutput += updatedList[i] + "<br>";
+        }
+        document.getElementById("updatedProducts").innerHTML = updatedOutput;
+
+    </script>
+
+</body>
+</html>
