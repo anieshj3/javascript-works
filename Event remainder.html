@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Reminder</title>
+</head>
+<body>
+
+<h2>Event Reminder Tool</h2>
+
+<label>Select a past date:</label>
+<input type="date" id="eventDate">
+<button onclick="checkDate()">Check</button>
+
+<p id="result"></p>
+
+<script>
+function checkDate() {
+
+    let input = document.getElementById("eventDate").value;
+    let pastDate = new Date(input);
+    let today = new Date();
+
+    let year = pastDate.getFullYear();
+    let day = pastDate.getDate();
+
+    let months = ["January","February","March","April","May","June",
+                  "July","August","September","October","November","December"];
+
+    let monthName = months[pastDate.getMonth()];
+
+    let yearsPassed = today.getFullYear() - year;
+
+    let message = "";
+
+    if (yearsPassed >= 1) {
+        message = "It has been more than a year since that date.";
+    } else {
+        message = "It has been less than a year since that date.";
+    }
+
+    document.getElementById("result").innerHTML =
+        "Year: " + year + "<br>" +
+        "Month: " + monthName + "<br>" +
+        "Day: " + day + "<br><br>" +
+        "Full Years Passed: " + yearsPassed + "<br>" +
+        message;
+}
+</script>
+
+</body>
+</html>
