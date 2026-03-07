@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Store Calculator</title>
+</head>
+<body>
+
+<h2>Grocery Store Billing</h2>
+<button onclick="startBilling()">Start Billing</button>
+
+<p id="result"></p>
+
+<script>
+function startBilling() {
+
+    let purchases = 0;
+    let output = "";
+
+    while (purchases < 5) {
+
+        let code = Number(prompt("Enter product code (1-Apple, 2-Banana, 3-Mango):"));
+        let qty = Number(prompt("Enter quantity:"));
+        let price = 0;
+        let product = "";
+        let total = 0;
+
+        switch (code) {
+
+            case 1:
+                product = "Apple";
+                price = 30;
+                break;
+
+            case 2:
+                product = "Banana";
+                price = 10;
+                break;
+
+            case 3:
+                product = "Mango";
+                price = 50;
+                break;
+
+            default:
+                output += "Invalid product code<br>";
+                continue; // skip this iteration
+        }
+
+        purchases++;
+
+        total = price * qty;
+
+        output += product + " - Total Price: ₹" + total + "<br>";
+
+        if (total > 100) {
+            output += "High purchase<br><br>";
+        } else {
+            output += "Normal purchase<br><br>";
+        }
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
