@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>User Feedback Checker</h2>
+<p id="result"></p>
+
+<script>
+
+// JSON string from contact form
+let jsonData = '{"name":"John","feedback":"Thank you for the great service"}';
+
+try {
+
+    // Convert JSON string to object
+    let data = JSON.parse(jsonData);
+
+    // Named arrow function to check feedback
+    const checkFeedback = (text) => {
+        let pattern = /thank/i;
+
+        if(pattern.test(text)){
+            return "Positive feedback received";
+        } else {
+            return "Feedback noted";
+        }
+    };
+
+    // Call the function
+    let message = checkFeedback(data.feedback);
+
+    document.getElementById("result").innerHTML = message;
+
+}
+
+catch(error){
+    document.getElementById("result").innerHTML = "Invalid JSON data";
+}
+
+</script>
+
+</body>
+</html>
