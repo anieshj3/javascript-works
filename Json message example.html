@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JSON message example</h2>
+    <script>
+        let jsontext={"name":"Anish","email":"anish@gamil.com","message":"Hello vro"}
+
+        const showMessage=()=>{
+            try{
+                let user=JSON.parse(jsontext);
+                console.log("Message received from"+user.name);
+            }
+            catch(error) {
+                console.log("Error:Invalid JSON data")
+            }
+            
+        };
+        showMessage();
+    </script>
+</body>
+</html>
