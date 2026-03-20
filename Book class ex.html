@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Class Example</title>
+</head>
+<body>
+
+<h2>Book Details Output (Check Console)</h2>
+
+<script>
+  class Book {
+    constructor(title, author, price) {
+      this._title = title;
+      this._author = author;
+      this._price = price;
+    }
+
+    getTitle() {
+      return this._title;
+    }
+
+    getAuthor() {
+      return this._author;
+    }
+
+    setPrice(newPrice) {
+      if (typeof newPrice === "number" && newPrice > 0) {
+        this._price = newPrice;
+        console.log("Price updated successfully!");
+      } else {
+        console.log("Invalid price! Must be a number greater than 0.");
+      }
+    }
+    getDetails() {
+      return `Title: ${this._title}, Author: ${this._author}, Price: ${this._price}`;
+    }
+  }
+
+  let book1 = new Book("The Alchemist", "Paulo Coelho", 300);
+  book1.setPrice(450);
+  book1.setPrice(-100);
+  book1.setPrice("abc");
+  console.log(book1.getDetails());
+</script>
+
+</body>
+</html>
